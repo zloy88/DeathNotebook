@@ -1,0 +1,13 @@
+## Interface: 16001
+## Title: Death Wish
+## Notes: Write your enemies into the book. Marks their nameplates and counts your kills.
+## Author: zloy88
+## Version: @project-version@
+## IconTexture: Interface\TargetingFrame\UI-RaidTargetingIcon_8
+## SavedVariables: DeathWishDB
+## AddonCompartmentFunc: DeathWish_Toggle
+
+Core.lua
+Nameplates.lua
+Book.lua
+Minimap.lua

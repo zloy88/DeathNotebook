@@ -1,0 +1,15 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+*.swp
+*~
+.vscode/
+.idea/
+
+# Build output
+.release/
+__pycache__/
+
+*.bak

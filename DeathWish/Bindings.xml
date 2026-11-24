@@ -1,0 +1,8 @@
+<Bindings>
+	<Binding name="DEATHWISH_TOGGLE" header="DEATHWISH" category="ADDONS">
+		DeathWish_Toggle()
+	</Binding>
+	<Binding name="DEATHWISH_ADDTARGET" category="ADDONS">
+		DeathWish_AddTarget()
+	</Binding>
+</Bindings>

@@ -1,0 +1,10 @@
+package-as: DeathWish
+
+# The addon lives in DeathWish/; everything else stays out of the zip.
+move-folders:
+  DeathWish/DeathWish: DeathWish
+
+ignore:
+  - README.md
+  - tests
+  - tools
