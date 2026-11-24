@@ -25,7 +25,18 @@ jobs:
         with:
           args: -d
 
-      - run: unzip -l .release/*.zip && cat .release/DeathWish/DeathWish.toc
+      # On a branch push the packager skips tagged commits: the tag run builds those.
+      - name: Show package
+        run: |
+          if compgen -G ".release/*.zip" > /dev/null; then
+            unzip -l .release/*.zip
+            cat .release/DeathWish/DeathWish.toc
+          elif [[ "$GITHUB_REF" == refs/heads/* ]] && [[ -n "$(git tag --points-at HEAD)" ]]; then
+            echo "Tagged commit: packaged by the tag run."
+          else
+            echo "::error::No package was built"
+            exit 1
+          fi
 
   release:
     needs: test
