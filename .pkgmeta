@@ -6,5 +6,6 @@ move-folders:
 
 ignore:
   - README.md
+  - logo.png
   - tests
   - tools
