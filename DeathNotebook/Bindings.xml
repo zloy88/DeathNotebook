@@ -1,0 +1,11 @@
+<Bindings>
+	<Binding name="DEATHNOTEBOOK_TOGGLE" header="DEATHNOTEBOOK" category="ADDONS">
+		DeathNotebook_Toggle()
+	</Binding>
+	<Binding name="DEATHNOTEBOOK_ADDTARGET" category="ADDONS">
+		DeathNotebook_AddTarget()
+	</Binding>
+	<Binding name="DEATHNOTEBOOK_MUTE" category="ADDONS">
+		DeathNotebook_ToggleAlerts()
+	</Binding>
+</Bindings>

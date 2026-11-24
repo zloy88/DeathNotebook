@@ -1,8 +1,8 @@
-package-as: DeathWish
+package-as: DeathNotebook
 
-# The addon lives in DeathWish/; everything else stays out of the zip.
+# The addon lives in DeathNotebook/; everything else stays out of the zip.
 move-folders:
-  DeathWish/DeathWish: DeathWish
+  DeathNotebook/DeathNotebook: DeathNotebook
 
 ignore:
   - README.md

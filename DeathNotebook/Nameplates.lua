@@ -1,4 +1,4 @@
-local _, DW = ...
+local _, DN = ...
 
 local SKULL = "Interface\\TargetingFrame\\UI-RaidTargetingIcon_8"
 local marks = {} -- nameplate frame -> our own overlay (Blizzard's frames stay untouched)
@@ -12,7 +12,7 @@ local function GetMark(plate)
 	m:EnableMouse(false)
 
 	local glow = m:CreateTexture(nil, "BACKGROUND")
-	glow:SetTexture("Interface\\AddOns\\DeathWish\\Media\\Glow.tga")
+	glow:SetTexture("Interface\\AddOns\\DeathNotebook\\Media\\Glow.tga")
 	glow:SetPoint("CENTER")
 	glow:SetSize(62, 62)
 	glow:SetVertexColor(1, 0.08, 0.05)
@@ -42,10 +42,10 @@ end
 local function Update(unit)
 	local plate = C_NamePlate.GetNamePlateForUnit(unit)
 	if not plate then return end
-	local entry = DW.FindUnit(unit)
+	local entry = DN.Option("plates") and DN.FindUnit(unit)
 	if entry then
 		local m = GetMark(plate)
-		m.kills:SetText(entry.kills > 0 and "x" .. entry.kills or "")
+		m.kills:SetText(entry.kills + entry.deaths > 0 and entry.kills .. ":" .. entry.deaths or "")
 		m:Show()
 	elseif marks[plate] then
 		marks[plate]:Hide()
@@ -55,7 +55,9 @@ end
 -- Remember units ourselves rather than reading fields off nameplate frames.
 local units = {}
 
-function DW.RefreshNameplates()
+function DN.VisibleUnits() return units end
+
+function DN.RefreshNameplates()
 	for unit in pairs(units) do Update(unit) end
 end
 
@@ -63,7 +65,10 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 f:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
 f:RegisterEvent("UNIT_NAME_UPDATE")
+f:RegisterEvent("UNIT_FACTION")
 f:SetScript("OnEvent", function(_, event, unit)
+	unit = DN.Readable(unit)
+	if not unit then return end
 	if event == "NAME_PLATE_UNIT_ADDED" then
 		units[unit] = true
 		Update(unit)

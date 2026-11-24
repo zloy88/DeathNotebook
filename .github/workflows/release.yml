@@ -30,7 +30,7 @@ jobs:
         run: |
           if compgen -G ".release/*.zip" > /dev/null; then
             unzip -l .release/*.zip
-            cat .release/DeathWish/DeathWish.toc
+            cat .release/DeathNotebook/DeathNotebook.toc
           elif [[ "$GITHUB_REF" == refs/heads/* ]] && [[ -n "$(git tag --points-at HEAD)" ]]; then
             echo "Tagged commit: packaged by the tag run."
           else

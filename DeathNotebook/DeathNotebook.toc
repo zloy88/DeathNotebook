@@ -1,0 +1,18 @@
+## Interface: 16001
+## Title: Death Notebook
+## Notes-deDE: Schreibe deine Feinde ins Buch. Warnt, wenn sie nahe sind, und zählt Siege und Tode.
+## Notes: Write your enemies into the book. Warns you when they are near and keeps the score.
+## Author: zloy88
+## Version: @project-version@
+## X-Curse-Project-ID: 1828957
+## IconTexture: Interface\AddOns\DeathNotebook\Media\Icon.tga
+## SavedVariables: DeathNotebookDB, DeathWishDB
+## AddonCompartmentFunc: DeathNotebook_Toggle
+
+Locale.lua
+Core.lua
+Nameplates.lua
+Alert.lua
+Deaths.lua
+Book.lua
+Minimap.lua
